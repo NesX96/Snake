@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -45,20 +44,3 @@ public class Game extends Canvas implements Runnable, ActionListener {
 
 }
 
-
-Game{
-        + start()
-        + stop()
-        + run()
-        + tick()
-        + render()
-
-        + setState()	//Pause, Run
-        + getState()
-        }
-=======
-public class Game {
-}
-
-
->>>>>>> master

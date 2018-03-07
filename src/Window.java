@@ -1,14 +1,13 @@
-<<<<<<< HEAD
 import javax.swing.*;
 import java.awt.*;
 
-public class Window extends Canvas{
+public class Window extends Canvas {
 
     private int WIDTH;
     private int HEIGHT;
     private String TITLE;
 
-    public Window(){
+    public Window() {
         WIDTH = 800;
         HEIGHT = 600;
         JFrame frame = new JFrame() //final?
@@ -29,12 +28,12 @@ public class Window extends Canvas{
         this.HEIGHT = HEIGHT;
     }
 
-    public void setTitle(String TITLE){
+    public void setTitle(String TITLE) {
         this.TITLE = TITLE;
     }
 
 
-    public void setGame(Game game){
+    public void setGame(Game game) {
         this.add(game);
         //game.start(); / qua o toglierlo?
     }
@@ -51,18 +50,12 @@ public class Window extends Canvas{
         this.HEIGHT = HEIGHT;
     }
 
-    public void setTitle(String TITLE){
+    public void setTitle(String TITLE) {
         this.TITLE = TITLE;
     }
 
 
-    public void getGameState(Game game){
+    public void getGameState(Game game) {
         this.add(game);
     }
-
-
-
-=======
-public class Window {
->>>>>>> master
 }
