@@ -28,6 +28,7 @@ Window{
 + setTitle()
 + setGame()
 
+
 + getWidth()
 + getHeight()
 + getTitle()
