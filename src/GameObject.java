@@ -1,10 +1,17 @@
+import java.awt.*;
+
 public abstract class GameObject {
 
     protected float x;
     protected float y;
-    protected float
+    protected ID id;
+    protected float velX, velY;
 
-    public GameObject()
+    public GameObject(final float x, final float y, final ID id){
+        this.x = x;
+        this.y = y;
+        this.id = id;
+    }
 
     public collision(GameObject eater, GameObject eaten){
 
@@ -38,11 +45,11 @@ public abstract class GameObject {
 
     }
 
-    public abstract render(){
+    public abstract render(Graphics graph){
 
     }
 
-    public abstract getBounds(){
+    public abstract Rectangle getBounds(){
 
     }
 

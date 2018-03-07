@@ -1,6 +1,3 @@
-
-public class Window {
-=======
 import javax.swing.*;
 import java.awt.*;
 
@@ -64,5 +61,4 @@ public class Window extends Canvas{
 
 
 
->>>>>>> origin/Nyriu_Branch
 }
