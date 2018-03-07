@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import javax.swing.*;
 import java.awt.*;
 
@@ -61,4 +62,7 @@ public class Window extends Canvas{
 
 
 
+=======
+public class Window {
+>>>>>>> master
 }

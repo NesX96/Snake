@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -55,3 +56,9 @@ Game{
         + setState()	//Pause, Run
         + getState()
         }
+=======
+public class Game {
+}
+
+
+>>>>>>> master
