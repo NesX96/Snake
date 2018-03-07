@@ -10,6 +10,7 @@ public class Window extends Canvas {
     public Window() {
         WIDTH = 800;
         HEIGHT = 600;
+        TITLE = "Bella Finestra";
         JFrame frame = new JFrame() //final?
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -42,18 +43,17 @@ public class Window extends Canvas {
     //========================================================
     // GET FUNCTIONS
     //========================================================
-    public void setWIDTH(int WIDTH) {
-        this.WIDTH = WIDTH;
+    public int getWIDTH() {
+        return this.WIDTH;
     }
 
-    public void setHEIGHT(int HEIGHT) {
-        this.HEIGHT = HEIGHT;
+    public int getHEIGHT() {
+        return this.HEIGHT;
     }
 
-    public void setTitle(String TITLE) {
-        this.TITLE = TITLE;
+    public String getTitle() {
+        return this.TITLE;
     }
-
 
     public void getGameState(Game game) {
         this.add(game);
