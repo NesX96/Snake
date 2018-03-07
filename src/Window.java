@@ -17,7 +17,6 @@ public class Window extends Canvas{
         frame.setVisible(true);
     }
 
-
     //========================================================
     // SET FUNCTIONS
     //========================================================
