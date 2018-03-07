@@ -16,6 +16,7 @@ Game{
 
 + setState()	//Pause, Run
 + getState()
+
 }
 
 Menu{}
