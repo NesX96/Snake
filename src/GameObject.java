@@ -1,4 +1,10 @@
-public class GameObject {
+public abstract class GameObject {
+
+    protected float x;
+    protected float y;
+    protected float
+
+    public GameObject()
 
     public collision(GameObject eater, GameObject eaten){
 
