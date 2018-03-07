@@ -1,11 +1,15 @@
 public class Inanimate extends GameObject {
 
-
-    public abstract move(){
+    public Inanimate(){
 
     }
 
-    private abstract eaten(){
+
+    public void abstract move(){
+
+    }
+
+    private void abstract eaten(){
 
     }
 

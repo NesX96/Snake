@@ -1,6 +1,9 @@
 public class Main {
-    Game game = new Game();
-    Window window = new Window();
-    window.setGame(game);
+
+    public static void main(String[] args) {
+        //Game game = new Game();
+        Window window = new Window();
+        //window.setGame(game);
+    }
 
 }
