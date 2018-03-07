@@ -34,6 +34,10 @@ Window{
 + getGameState()
 }
 
+enu ID{
+
+}
+
 GameObject{
 
 + collision(GameObject, GameObject)
@@ -41,6 +45,8 @@ GameObject{
 + setY(int y)
 + getX()
 + getY()
++ setID
++ getID
 + setSpeed(int speed)
 + getSpeed()
 

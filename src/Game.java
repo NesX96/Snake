@@ -5,6 +5,7 @@ public class Game extends Canvas implements Runnable, ActionListener {
     /*TODO sistemare:
     *   - Private/Public
      *  - Override
+     *
      */
 
     public Game(){
