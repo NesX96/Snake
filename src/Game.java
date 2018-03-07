@@ -44,14 +44,3 @@ public class Game extends Canvas implements Runnable, ActionListener {
 
 }
 
-
-Game{
-        + start()
-        + stop()
-        + run()
-        + tick()
-        + render()
-
-        + setState()	//Pause, Run
-        + getState()
-        }
