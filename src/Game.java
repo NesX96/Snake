@@ -21,7 +21,7 @@ public class Game extends Canvas implements Runnable {
 
         handler = new Handler();
 
-        handler.addObject(new Player(10, 10,handler));
+        handler.addObject(new Player(10, 10, handler));
         handler.setSpeed(1);
 
     }

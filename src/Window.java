@@ -8,6 +8,7 @@ public class Window extends Canvas {
     private int HEIGHT;
     private String TITLE;
 
+
     public Window(int width, int height,String title, Game game) {
         WIDTH = width;
         HEIGHT = height;
@@ -20,7 +21,7 @@ public class Window extends Canvas {
         frame.setMinimumSize(new Dimension(WIDTH, HEIGHT));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false); // TODO modificare dimensioni tramite set
+        frame.setResizable(false); // TODO modify dimension via setSize
         frame.setLocationRelativeTo(null);
         frame.add(game);
         frame.setVisible(true);
@@ -53,11 +54,29 @@ public class Window extends Canvas {
 
 
 
+    //========================================================
+    // GETTER AND SETTER
+    //========================================================
+
+    public int getWIDTH() {
+        return this.WIDTH;
+    }
+
+    public int getHEIGHT() {
+        return this.HEIGHT;
+    }
+
+    public String getTitle() {
+        return this.TITLE;
+    }
+
+    /*
+    public void getGameState(Game game) {
+        this.add(game);
+    }
+    */
 
 
-    //========================================================
-    // SET FUNCTIONS
-    //========================================================
     public void setWIDTH(int WIDTH) {
         this.WIDTH = WIDTH;
     }
@@ -70,30 +89,12 @@ public class Window extends Canvas {
         this.TITLE = TITLE;
     }
 
-/*
+    /*
     public void setGame(Game game) {
         this.add(game);
-        //game.start(); / qua o toglierlo?
+        //game.start(); // qua o toglierlo?
     }
-*/
+    */
 
-    //========================================================
-    // GET FUNCTIONS
-    //========================================================
-    public int getWIDTH() {
-        return this.WIDTH;
-    }
 
-    public int getHEIGHT() {
-        return this.HEIGHT;
-    }
-
-    public String getTitle() {
-        return this.TITLE;
-    }
-/*
-    public void getGameState(Game game) {
-        this.add(game);
-    }
-*/
 }
