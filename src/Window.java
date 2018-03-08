@@ -1,22 +1,59 @@
 import javax.swing.*;
 import java.awt.*;
 
+
 public class Window extends Canvas {
 
     private int WIDTH;
     private int HEIGHT;
     private String TITLE;
 
-    public Window() {
-        WIDTH = 800;
-        HEIGHT = 600;
-        TITLE = "Bella Finestra";
-        JFrame frame = new JFrame() //final?
+    public Window(int width, int height,String title, Game game) {
+        WIDTH = width;
+        HEIGHT = height;
+        TITLE = title;
+
+        JFrame frame = new JFrame(TITLE); //final?
+
+        frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        frame.setMaximumSize(new Dimension(WIDTH+20, HEIGHT+20));
+        frame.setMinimumSize(new Dimension(WIDTH, HEIGHT));
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        frame.setResizable(false); // TODO modificare dimensioni tramite set
         frame.setLocationRelativeTo(null);
+        frame.add(game);
         frame.setVisible(true);
+        game.start();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //========================================================
     // SET FUNCTIONS
@@ -33,12 +70,12 @@ public class Window extends Canvas {
         this.TITLE = TITLE;
     }
 
-
+/*
     public void setGame(Game game) {
         this.add(game);
         //game.start(); / qua o toglierlo?
     }
-
+*/
 
     //========================================================
     // GET FUNCTIONS
@@ -54,8 +91,9 @@ public class Window extends Canvas {
     public String getTitle() {
         return this.TITLE;
     }
-
+/*
     public void getGameState(Game game) {
         this.add(game);
     }
+*/
 }
