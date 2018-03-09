@@ -37,21 +37,25 @@ public class Handler {
     }
 
     public void setPlayerSpeed(int speed){
-        for (int i = 0; i < players.size(); i++){
-            if(players.get(i).id == ID.Player){
-                players.get(i).setSpeed(speed);
+        getPlayer().setSpeed(speed);
             }
-        }
-    }
+
 
     public void setPlayerDirection(Direction direction){
-        for (int i = 0; i < players.size(); i++){
-            if(players.get(i).id == ID.Player){
-                players.get(i).setDirection(direction);
-            }
-        }
+        getPlayer().setDirection(direction);
     }
 
+    public Player getPlayer() {
+
+        Player p = null;
+
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).id == ID.Player) {
+                p = players.get(i);
+            }
+        }
+        return p;
+    }
 
 
 }

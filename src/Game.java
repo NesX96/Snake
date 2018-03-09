@@ -27,8 +27,10 @@ public class Game extends Canvas implements Runnable {
 
         handler = new Handler();
         handler.addObject(new Player(10, 10, ID.Player, handler));
-        handler.setPlayerSpeed(1);
+        handler.setPlayerSpeed(3);
         handler.setPlayerDirection(Direction.DOWN);
+
+        this.addKeyListener(new KeyInput(handler));
 
 
     }
