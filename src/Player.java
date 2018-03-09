@@ -2,22 +2,29 @@ import java.awt.*;
 
 public class Player extends GameObject {
 
-    Handler handler;// TODO add handler
+    Handler handler;
     /*
     private int x, y;
     private int speedX;
-    private int speedY; // TODO change with directions
+    private int speedY; // TODO change with directions.... work in progress
     */
 
     private int headSizeX;
     private int headSizeY;
     private int headSizeDefault = 30;
 
+    public enum Direction { UP(), RIGHT(), DOWN(), LEFT() }
+
+    private Direction currentDirection;
+    private int currentSpeed;
+
     public Player(int x, int y, final ID id, Handler handler){
         super(x, y, id);
         this.handler = handler;
         this.headSizeX = headSizeDefault;
         this.headSizeY = headSizeDefault;
+        this.currentDirection = Direction.RIGHT;
+        this.currentSpeed = 1;
     }
 
     public void setHeadSizeX(int x){
@@ -41,8 +48,26 @@ public class Player extends GameObject {
     //========================================================
     @Override
     public void tick(){
-        this.x = x + speedX;
-        this.y = y + speedY;
+        //this.x = x + speedX;
+        //this.y = y + speedY;
+        if(this.currentDirection == Direction.UP){
+
+            this.y = this.y - currentSpeed;
+
+        } else if(this.currentDirection == Direction.RIGHT){
+
+            this.x = this.x + currentSpeed;
+
+        } else if(this.currentDirection == Direction.DOWN){
+
+            this.y = this.y + currentSpeed;
+
+        } else if(this.currentDirection == Direction.LEFT){
+
+            this.x = this.x - currentSpeed;
+
+        }
+
     }
 
     @Override
@@ -53,10 +78,25 @@ public class Player extends GameObject {
         gameGraphics2D.fillRect((int) x, (int) y, this.headSizeX, this.headSizeY);
     }
 
-    // TODO getBounds()
+
     public Rectangle getBounds() {
         return new Rectangle((int) x, (int) y, this.headSizeX, this.headSizeY);
     }
 
+    public void setDirection(Direction direction){
+        this.currentDirection = direction;
+    }
+
+    public Direction getDirection(){
+        return this.currentDirection;
+    }
+
+    public void setSpeed(int speed){
+        this.currentSpeed = speed;
+    }
+
+    public int getSpeed(){
+        return this.currentSpeed;
+    }
 
 }

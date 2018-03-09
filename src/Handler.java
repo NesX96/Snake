@@ -39,7 +39,15 @@ public class Handler {
     public void setPlayerSpeed(int speed){          // TODO useless?
         for (int i = 0; i < players.size(); i++){
             if(players.get(i).id == ID.Player){
-                players.get(i).setSpeedX(speed);
+                players.get(i).setSpeed(speed);
+            }
+        }
+    }
+
+    public void setPlayerDirection(Player.Direction direction){
+        for (int i = 0; i < players.size(); i++){
+            if(players.get(i).id == ID.Player){
+                players.get(i).setDirection(direction);
             }
         }
     }
