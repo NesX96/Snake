@@ -14,8 +14,8 @@ public class Game extends Canvas implements Runnable {
     private int HEIGHT;
     private String TITLE;
 
-    //private boolean firstTimeCreation = true; // TODO modificare nello spown
     public Handler handler;
+
 
 
     public Game(){
@@ -28,7 +28,7 @@ public class Game extends Canvas implements Runnable {
         handler = new Handler();
         handler.addObject(new Player(10, 10, ID.Player, handler));
         handler.setPlayerSpeed(1);
-        handler.setPlayerDirection(Player.Direction.DOWN);
+        handler.setPlayerDirection(Direction.DOWN);
 
 
     }

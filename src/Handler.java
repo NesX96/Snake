@@ -36,7 +36,7 @@ public class Handler {
         }
     }
 
-    public void setPlayerSpeed(int speed){          // TODO useless?
+    public void setPlayerSpeed(int speed){
         for (int i = 0; i < players.size(); i++){
             if(players.get(i).id == ID.Player){
                 players.get(i).setSpeed(speed);
@@ -44,18 +44,10 @@ public class Handler {
         }
     }
 
-    public void setPlayerDirection(Player.Direction direction){
+    public void setPlayerDirection(Direction direction){
         for (int i = 0; i < players.size(); i++){
             if(players.get(i).id == ID.Player){
                 players.get(i).setDirection(direction);
-            }
-        }
-    }
-
-    public void setEnemySpeed(int speed){
-        for (int i = 0; i < players.size(); i++){
-            if(players.get(i).id == ID.Enemy){
-                players.get(i).setSpeedX(speed);
             }
         }
     }

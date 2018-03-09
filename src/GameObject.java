@@ -4,8 +4,9 @@ public abstract class GameObject {
 
     protected int x;
     protected int y;
-    protected int speedX; // TODO change with directions?
-    protected int speedY;
+    protected Direction currentDirection;
+    protected int currentSpeed;
+
     protected ID id;
 
     public GameObject (int x, int y, final ID id) {
@@ -38,32 +39,24 @@ public abstract class GameObject {
         return this.y;
     }
 
-    public int getSpeedX() {
-        return this.speedX;
+    public void setDirection(Direction direction){
+        this.currentDirection = direction;
     }
 
-    public int getSpeedY() {
-        return this.speedY;
+    public Direction getDirection(){
+        return this.currentDirection;
+    }
+
+    public void setSpeed(int speed){
+        this.currentSpeed = speed;
+    }
+
+    public int getSpeed(){
+        return this.currentSpeed;
     }
 
     public ID getId() {
         return id;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public void setSpeedX(int speedX) {
-        this.speedX = speedX;
-    }
-
-    public void setSpeedY(int speedY) {
-        this.speedY = speedY;
     }
 
     public void setId(final ID id) {

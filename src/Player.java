@@ -13,10 +13,9 @@ public class Player extends GameObject {
     private int headSizeY;
     private int headSizeDefault = 30;
 
-    public enum Direction { UP(), RIGHT(), DOWN(), LEFT() }
 
-    private Direction currentDirection;
-    private int currentSpeed;
+
+
 
     public Player(int x, int y, final ID id, Handler handler){
         super(x, y, id);
@@ -83,20 +82,6 @@ public class Player extends GameObject {
         return new Rectangle((int) x, (int) y, this.headSizeX, this.headSizeY);
     }
 
-    public void setDirection(Direction direction){
-        this.currentDirection = direction;
-    }
 
-    public Direction getDirection(){
-        return this.currentDirection;
-    }
-
-    public void setSpeed(int speed){
-        this.currentSpeed = speed;
-    }
-
-    public int getSpeed(){
-        return this.currentSpeed;
-    }
 
 }
