@@ -9,7 +9,7 @@ public class Player extends GameObject {
     private int speedY; // TODO change with directions.... work in progress
     */
 
-    private int headSizeX;
+    private int headSizeX;  // TODO it works if the head is a rectangle
     private int headSizeY;
     private int headSizeDefault = 30;
 
@@ -79,7 +79,7 @@ public class Player extends GameObject {
     }
 
 
-    public Rectangle getBounds() {
+    public Rectangle getBounds() { // TODO it must be modified to fit the superclass
         return new Rectangle((int) x, (int) y, this.headSizeX, this.headSizeY);
     }
 
