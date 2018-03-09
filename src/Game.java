@@ -1,20 +1,26 @@
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.image.ImageObserver;
 
 public class Game extends Canvas implements Runnable {
 
     private Thread thread;
     public static boolean running = false;
+
+    private int aspectRatioX = 16;
+    private int aspectRatioY = 9;
+    private int resolution = 720;
     private int WIDTH;
     private int HEIGHT;
     private String TITLE;
+
     private boolean firstTimeCreation = true; // TODO modificare nello spown
     public Handler handler;
 
 
     public Game(){
-        WIDTH = 800;
-        HEIGHT = (WIDTH / 4) * 3;
+        HEIGHT = resolution;
+        WIDTH = (HEIGHT / aspectRatioY) * aspectRatioX;
         TITLE = "Gioco";
 
         Window window = new Window(WIDTH, HEIGHT, TITLE, this);
@@ -97,6 +103,33 @@ public class Game extends Canvas implements Runnable {
         bs.show();
     }
 
+    //=================================================
+    // SCREEN PROPERTIES
+    //=================================================
+
+    public int getAspectRatioX() {
+        return aspectRatioX;
+    }
+
+    public void setAspectRatioX(int aspectRatioX) {
+        this.aspectRatioX = aspectRatioX;
+    }
+
+    public int getAspectRatioY() {
+        return aspectRatioY;
+    }
+
+    public void setAspectRatioY(int aspectRatioY) {
+        this.aspectRatioY = aspectRatioY;
+    }
+
+    public int getResolution() {
+        return resolution;
+    }
+
+    public void setResolution(int resolution) {
+        this.resolution = resolution;
+    }
 
 
 
