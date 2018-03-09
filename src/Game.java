@@ -14,45 +14,20 @@ public class Game extends Canvas implements Runnable {
 
     public Game(){
         WIDTH = 800;
-        HEIGHT = 600;
+        HEIGHT = (WIDTH / 4) * 3;
         TITLE = "Gioco";
 
         Window window = new Window(WIDTH, HEIGHT, TITLE, this);
 
         handler = new Handler();
-
-        handler.addObject(new Player(10, 10, handler));
-        handler.setSpeed(1);
-
-    }
-
-
-
-    private void render() {
-
-
-
-        final BufferStrategy bs = this.getBufferStrategy();
-        if (bs == null){
-            this.createBufferStrategy(3);
-            //System.out.println("buffer");
-            return;
-        }
-
-        final Graphics gameGraphics = bs.getDrawGraphics(); // TODO modificare in caso
-        gameGraphics.setColor(Color.CYAN);
-        gameGraphics.fillRect(0,0,WIDTH,HEIGHT);
-
-        handler.render(gameGraphics);
-
-        gameGraphics.dispose();
-        bs.show();
-
+        handler.addObject(new Player(10, 10, ID.Player, handler));
+        handler.setPlayerSpeed(1);
 
     }
 
-
-
+    //========================================================
+    // FUNCTIONS - GAME DYNAMICS
+    //========================================================
 
     public synchronized void start() {
         thread = new Thread(this);
@@ -96,8 +71,28 @@ public class Game extends Canvas implements Runnable {
         stop();
     }
 
+
     public void tick(){
         handler.tick();
+    }
+
+    private void render() {
+
+        final BufferStrategy bs = this.getBufferStrategy();
+        if (bs == null){
+            this.createBufferStrategy(3);
+            //System.out.println("buffer");
+            return;
+        }
+
+        final Graphics gameGraphics = bs.getDrawGraphics();
+        gameGraphics.setColor(Color.CYAN);
+        gameGraphics.fillRect(0,0,WIDTH,HEIGHT);
+
+        handler.render(gameGraphics);
+
+        gameGraphics.dispose();
+        bs.show();
     }
 
 

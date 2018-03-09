@@ -4,19 +4,20 @@ public abstract class GameObject {
 
     protected int x;
     protected int y;
-    protected int speedX;
+    protected int speedX; // TODO change with directions?
     protected int speedY;
-    //protected   ID id; // TODO add ID enum external
+    protected ID id;
 
-    public GameObject (int x, int y) {
+    public GameObject (int x, int y, final ID id) {
         this.x = x;
         this.y = y;
+        this.id = id;
     }
 
 
 
     //========================================================
-    // FUNCTIONS
+    // FUNCTIONS - GAME DYNAMICS
     //========================================================
     public abstract void tick();
     public abstract void render(Graphics g);
@@ -45,6 +46,9 @@ public abstract class GameObject {
         return this.speedY;
     }
 
+    public ID getId() {
+        return id;
+    }
 
     public void setX(int x) {
         this.x = x;
@@ -60,6 +64,10 @@ public abstract class GameObject {
 
     public void setSpeedY(int speedY) {
         this.speedY = speedY;
+    }
+
+    public void setId(final ID id) {
+        this.id = id;
     }
 
 
