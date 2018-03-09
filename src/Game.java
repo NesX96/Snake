@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.awt.image.ImageObserver;
+
 
 public class Game extends Canvas implements Runnable {
 
@@ -14,7 +14,7 @@ public class Game extends Canvas implements Runnable {
     private int HEIGHT;
     private String TITLE;
 
-    private boolean firstTimeCreation = true; // TODO modificare nello spown
+    //private boolean firstTimeCreation = true; // TODO modificare nello spown
     public Handler handler;
 
 
@@ -111,17 +111,15 @@ public class Game extends Canvas implements Runnable {
         return aspectRatioX;
     }
 
-    public void setAspectRatioX(int aspectRatioX) {
+    public void setAspectRatio(int aspectRatioX, int aspectRatioY) {
         this.aspectRatioX = aspectRatioX;
+        this.aspectRatioY = aspectRatioY;
     }
 
     public int getAspectRatioY() {
         return aspectRatioY;
     }
 
-    public void setAspectRatioY(int aspectRatioY) {
-        this.aspectRatioY = aspectRatioY;
-    }
 
     public int getResolution() {
         return resolution;
