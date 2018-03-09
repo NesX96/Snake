@@ -30,6 +30,7 @@ public class Handler {
         for (int i=0 ; i < players.size(); i++){
             final Player tempPlayer = players.get(i);
             tempPlayer.render(gameGraphics);
+            Toolkit.getDefaultToolkit().sync(); // IT WORKS!!!!
         }
     }
 
