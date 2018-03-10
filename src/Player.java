@@ -3,17 +3,10 @@ import java.awt.*;
 public class Player extends GameObject {
 
     Handler handler;
-    /*
-    private int x, y;
-    private int speedX;
-    private int speedY; // TODO change with directions.... work in progress
-    */
 
-    private int headSizeX;  // TODO it works if the head is a rectangle
+    private int headSizeX;  //  it works if the head is a rectangle
     private int headSizeY;
     private int headSizeDefault = 30;
-
-
 
 
 
@@ -47,8 +40,7 @@ public class Player extends GameObject {
     //========================================================
     @Override
     public void tick(){
-        //this.x = x + speedX;
-        //this.y = y + speedY;
+
         if(this.currentDirection == Direction.UP){
 
             this.y = this.y - currentSpeed;
@@ -67,6 +59,11 @@ public class Player extends GameObject {
 
         }
 
+        this.x = clampPlayer(this.x, (Game.getResolution() / Game.getAspectRatioY())* Game.getAspectRatioX(), 0 );
+        this.y = clampPlayer(this.y, Game.getResolution() - headSizeDefault,0 );
+
+        //System.out.println(x +" "+ y);
+
     }
 
     @Override
@@ -75,13 +72,25 @@ public class Player extends GameObject {
         final Graphics2D gameGraphics2D = (Graphics2D) gameGraphics;
         gameGraphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         gameGraphics2D.fillRect((int) x, (int) y, this.headSizeX, this.headSizeY);
+        //gameGraphics2D.fillOval(x+30, y, this.headSizeX+20, this.headSizeY );
+
     }
 
+    public int clampPlayer(int var, final int max, int min) {
+        if (var <= min) {
+            return var = max - headSizeDefault;
+        } else if (var + headSizeDefault >= max) {
+            return var = min ;
+        } else {
+            return var;
+        }
+    }
 
+    /*
     public Rectangle getBounds() { // TODO it must be modified to fit the superclass
         return new Rectangle((int) x, (int) y, this.headSizeX, this.headSizeY);
     }
-
+    */
 
 
 }

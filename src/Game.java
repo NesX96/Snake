@@ -7,21 +7,18 @@ public class Game extends Canvas implements Runnable {
     private Thread thread;
     public static boolean running = false;
 
-    private int aspectRatioX = 16;
-    private int aspectRatioY = 9;
-    private int resolution = 720;
-    private int WIDTH;
-    private int HEIGHT;
-    private String TITLE;
+    private static int aspectRatioX = 16;
+    private static int aspectRatioY = 9;
+    private static int resolution = 720;
+    private static int HEIGHT = resolution;
+    private static int WIDTH = (HEIGHT / aspectRatioY) * aspectRatioX;
+    private String TITLE = "Gioco";
 
     public Handler handler;
 
 
 
     public Game(){
-        HEIGHT = resolution;
-        WIDTH = (HEIGHT / aspectRatioY) * aspectRatioX;
-        TITLE = "Gioco";
 
         Window window = new Window(WIDTH, HEIGHT, TITLE, this);
 
@@ -105,11 +102,12 @@ public class Game extends Canvas implements Runnable {
         bs.show();
     }
 
+
     //=================================================
     // SCREEN PROPERTIES
     //=================================================
 
-    public int getAspectRatioX() {
+    public static int getAspectRatioX() {
         return aspectRatioX;
     }
 
@@ -118,12 +116,12 @@ public class Game extends Canvas implements Runnable {
         this.aspectRatioY = aspectRatioY;
     }
 
-    public int getAspectRatioY() {
+    public static int getAspectRatioY() {
         return aspectRatioY;
     }
 
 
-    public int getResolution() {
+    public static int getResolution() {
         return resolution;
     }
 
