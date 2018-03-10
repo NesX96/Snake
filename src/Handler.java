@@ -45,6 +45,10 @@ public class Handler {
         getPlayer().setDirection(direction);
     }
 
+    public Direction getPlayerDirection(){
+        return getPlayer().getDirection();
+    }
+
     public Player getPlayer() {
 
         Player p = null;

@@ -37,8 +37,18 @@ public class KeyInput extends KeyAdapter {
 
         int key = e.getKeyCode();
 
-        if(key == KeyEvent.VK_UP || key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_DOWN || key == KeyEvent.VK_LEFT ){
-            keyPressed = false;
+        if(keyPressed) {
+
+            if(key == KeyEvent.VK_UP && handler.getPlayerDirection() == Direction.UP){
+                keyPressed = false;
+            } else if (key == KeyEvent.VK_RIGHT && handler.getPlayerDirection() == Direction.RIGHT){
+                keyPressed = false;
+            } else if (key == KeyEvent.VK_DOWN && handler.getPlayerDirection() == Direction.DOWN){
+                keyPressed = false;
+            } else if (key == KeyEvent.VK_LEFT && handler.getPlayerDirection() == Direction.LEFT){
+                keyPressed = false;
+            }
+
         }
 
     }
