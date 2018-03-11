@@ -4,7 +4,7 @@ public class Player extends GameObject {
 
     Handler handler;
 
-    private int headSizeX;  //  it works if the head is a rectangle
+    private int headSizeX;
     private int headSizeY;
     private int headSizeDefault = 30;
 
@@ -68,7 +68,7 @@ public class Player extends GameObject {
 
     @Override
     public void render(Graphics gameGraphics){
-        gameGraphics.setColor(Color.black);
+        gameGraphics.setColor(Color.GREEN);
         final Graphics2D gameGraphics2D = (Graphics2D) gameGraphics;
         gameGraphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         gameGraphics2D.fillRect((int) x, (int) y, this.headSizeX, this.headSizeY);
@@ -79,18 +79,18 @@ public class Player extends GameObject {
     public int clampPlayer(int var, final int max, int min) {
         if (var <= min) {
             return var = max - headSizeDefault;
-        } else if (var + headSizeDefault >= max) {
+        } else if (var + headSizeDefault > max) {
             return var = min ;
         } else {
             return var;
         }
     }
 
-    /*
-    public Rectangle getBounds() { // TODO it must be modified to fit the superclass
+
+    public Rectangle getBounds() {
         return new Rectangle((int) x, (int) y, this.headSizeX, this.headSizeY);
     }
-    */
+
 
 
 }

@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.util.Random;
 
 
 public class Game extends Canvas implements Runnable {
@@ -14,7 +15,10 @@ public class Game extends Canvas implements Runnable {
     private static int WIDTH = (HEIGHT / aspectRatioY) * aspectRatioX;
     private String TITLE = "Gioco";
 
+    private Random rand;
+
     public Handler handler;
+    private Spown spowner;
 
 
 
@@ -23,9 +27,8 @@ public class Game extends Canvas implements Runnable {
         Window window = new Window(WIDTH, HEIGHT, TITLE, this);
 
         handler = new Handler();
-        handler.addObject(new Player(10, 10, ID.Player, handler));
-        handler.setPlayerSpeed(3);
-        handler.setPlayerDirection(Direction.DOWN);
+
+        spowner = new Spown(handler);
 
         this.addKeyListener(new KeyInput(handler));
 
@@ -81,6 +84,7 @@ public class Game extends Canvas implements Runnable {
 
     public void tick(){
         handler.tick();
+        spowner.tick();
     }
 
     private void render() {
@@ -93,7 +97,7 @@ public class Game extends Canvas implements Runnable {
         }
 
         final Graphics gameGraphics = bs.getDrawGraphics();
-        gameGraphics.setColor(Color.CYAN);
+        gameGraphics.setColor(Color.DARK_GRAY);
         gameGraphics.fillRect(0,0,WIDTH,HEIGHT);
 
         handler.render(gameGraphics);
