@@ -1,3 +1,5 @@
+import javafx.scene.shape.Circle;
+
 import java.awt.*;
 
 public class Apple extends GameObject {
@@ -24,6 +26,9 @@ public class Apple extends GameObject {
         gameGraphics2D.fillOval(this.x, this.y, this.size, this.size);
     }
 
+    public Rectangle getBounds() {
+        return new Rectangle((int) x, (int) y, this.size, this.size);
+    }
 
 
 }

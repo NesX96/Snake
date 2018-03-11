@@ -6,7 +6,7 @@ public class Player extends GameObject {
 
     private int headSizeX;
     private int headSizeY;
-    private int headSizeDefault = 30;
+    private int headSizeDefault = 10;
 
 
 
@@ -60,9 +60,11 @@ public class Player extends GameObject {
         }
 
         this.x = clampPlayer(this.x, (Game.getResolution() / Game.getAspectRatioY())* Game.getAspectRatioX(), 0 );
-        this.y = clampPlayer(this.y, Game.getResolution() - headSizeDefault,0 );
+        this.y = clampPlayer(this.y, Game.getResolution() - headSizeDefault -25,0 );
 
         //System.out.println(x +" "+ y);
+
+        collision();
 
     }
 
@@ -89,6 +91,18 @@ public class Player extends GameObject {
 
     public Rectangle getBounds() {
         return new Rectangle((int) x, (int) y, this.headSizeX, this.headSizeY);
+    }
+
+    public void collision(){
+        for(int i = 0; i < handler.getSize(); i++){
+            GameObject tempObject = handler.players.get(i);
+
+            if(tempObject.getId() != ID.Player){
+                if(this.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.Apple){
+                    this.handler.removeObject(tempObject);
+                }
+            }
+        }
     }
 
 

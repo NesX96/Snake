@@ -22,10 +22,9 @@ public class Spown {
             addingPlayer = false;
 
         } else if (!handler.appleInGame()) {
-            System.out.println("eccolo");
-            //handler.addObject(new Apple(rand.nextInt(Game.getResolution()), rand.nextInt(Game.getResolution()), ID.Apple, handler));
-            handler.addObject(new Apple(50, 50, ID.Apple, handler));
-            System.out.println(handler.getSize());
+            //System.out.println("eccolo");
+            handler.addObject(new Apple(rand.nextInt(Game.getResolution()) -20, rand.nextInt(Game.getResolution()) -20, ID.Apple, handler));
+            //System.out.println(handler.getSize());
         }
 
 

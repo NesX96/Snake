@@ -22,7 +22,7 @@ public abstract class GameObject {
     //========================================================
     public abstract void tick();
     public abstract void render(Graphics g);
-    //public abstract Figure getBounds(); // TODO class Figure or Shape
+    public abstract Rectangle getBounds();
 
 
 

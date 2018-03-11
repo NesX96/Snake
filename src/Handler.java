@@ -77,5 +77,14 @@ public class Handler {
         return thereIs;
     }
 
+    /*
+    public void removeApple(){
+        for(int i = 0; i < players.size(); i++){
+            if(players.get(i).getId() == ID.Apple){
+                players.remove(i);
+            }
+        }
+    }
+    */
 
 }
