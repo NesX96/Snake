@@ -7,12 +7,12 @@ public class PlayerBody extends GameObject{
 
     private int oldX;
     private int oldY;
-    private int headSizeDefault = 15;
-
 
     public PlayerBody(int x, int y, final ID id, Handler handler, GameObject parent){
         super(x, y, id);
         this.handler = handler;
+
+        this.size = parent.getSize();
 
         this.parent = parent;
         this.oldX = x;
@@ -35,12 +35,12 @@ public class PlayerBody extends GameObject{
         gameGraphics.setColor(Color.GREEN);
         final Graphics2D gameGraphics2D = (Graphics2D) gameGraphics;
         gameGraphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        gameGraphics2D.fillRect((int) x, (int) y, 15, 15); //TODO abstraction in GameObject
+        gameGraphics2D.fillRect((int) x, (int) y, size, size); //TODO abstraction in GameObject
 
     }
 
     public Rectangle getBounds() {
-        return new Rectangle((int) x, (int) y, 15, 15);
+        return new Rectangle((int) x, (int) y, size, size);
     }
 
     public int getOldX() {

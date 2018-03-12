@@ -6,11 +6,6 @@ public class Player extends GameObject {
 
     private GameObject tail;
 
-    private int headSizeX;
-    private int headSizeY;
-    private int headSizeDefault = 15;
-
-
 
     private int oldX;
     private int oldY;
@@ -22,8 +17,7 @@ public class Player extends GameObject {
     public Player(int x, int y, final ID id, Handler handler){
         super(x, y, id);
         this.handler = handler;
-        this.headSizeX = headSizeDefault;
-        this.headSizeY = headSizeDefault;
+        this.size = 16;
 
         this.currentDirection = Direction.RIGHT;
         this.currentSpeed = 1;
@@ -33,24 +27,9 @@ public class Player extends GameObject {
         this.tail = this;
     }
 
-    public void setHeadSizeX(int x){
-        this.headSizeX = x;
-    }
 
-    public void setHeadSizeY(int y){
-        this.headSizeY = y;
-    }
-
-    public int getHeadSizeX(){
-        return this.headSizeX;
-    }
-
-    public int getHeadSizeY(){
-        return this.headSizeY;
-    }
-
-    public int getHeadSizeDefault() {
-        return this.headSizeDefault;
+    public int getsize() {
+        return this.size;
     }
 
     public Direction getPlayerDirection(){
@@ -105,7 +84,7 @@ public class Player extends GameObject {
         }
 
         this.x = clampPlayer(this.x, (Game.getResolution() / Game.getAspectRatioY())* Game.getAspectRatioX(), 0 );
-        this.y = clampPlayer(this.y, Game.getResolution() - headSizeDefault -25,0 );
+        this.y = clampPlayer(this.y, Game.getResolution() - size -25,0 );
 
         //System.out.println(x +" "+ y);
 
@@ -118,15 +97,15 @@ public class Player extends GameObject {
         gameGraphics.setColor(Color.GREEN);
         final Graphics2D gameGraphics2D = (Graphics2D) gameGraphics;
         gameGraphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        gameGraphics2D.fillRect((int) x, (int) y, this.headSizeX, this.headSizeY);
-        //gameGraphics2D.fillOval(x+30, y, this.headSizeX+20, this.headSizeY );
+        gameGraphics2D.fillRect((int) x, (int) y, this.size, this.size);
+        //gameGraphics2D.fillOval(x+30, y, this.size+20, this.size );
 
     }
 
     public int clampPlayer(int var, final int max, int min) {
         if (var <= min) {
-            return max - headSizeDefault;
-        } else if (var + headSizeDefault > max) {
+            return max - size;
+        } else if (var + size > max) {
             return min ;
         } else {
             return var;
@@ -135,7 +114,7 @@ public class Player extends GameObject {
 
 
     public Rectangle getBounds() {
-        return new Rectangle((int) x, (int) y, this.headSizeX, this.headSizeY);
+        return new Rectangle((int) x, (int) y, this.size, this.size);
     }
 
     public void extendsPlayer(){

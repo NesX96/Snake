@@ -9,6 +9,8 @@ public abstract class GameObject {
     protected int oldX;
     protected int oldY;
 
+    protected int size;
+
     protected ID id;
 
     public GameObject (int x, int y, final ID id) {
@@ -80,6 +82,14 @@ public abstract class GameObject {
 
     public void setOldY(int oldY) {
         this.oldY = oldY;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
 }
