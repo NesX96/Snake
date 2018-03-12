@@ -8,6 +8,8 @@ public class Player extends GameObject {
     private int headSizeY;
     private int headSizeDefault = 10;
 
+    // private Vector<> players = new Vector<GameObject>();
+
 
 
     public Player(int x, int y, final ID id, Handler handler){
@@ -64,7 +66,7 @@ public class Player extends GameObject {
 
         //System.out.println(x +" "+ y);
 
-        collision();
+        handler.controlCollision(this);
 
     }
 
@@ -80,9 +82,9 @@ public class Player extends GameObject {
 
     public int clampPlayer(int var, final int max, int min) {
         if (var <= min) {
-            return var = max - headSizeDefault;
+            return max - headSizeDefault;
         } else if (var + headSizeDefault > max) {
-            return var = min ;
+            return min ;
         } else {
             return var;
         }
@@ -93,17 +95,7 @@ public class Player extends GameObject {
         return new Rectangle((int) x, (int) y, this.headSizeX, this.headSizeY);
     }
 
-    public void collision(){
-        for(int i = 0; i < handler.getSize(); i++){
-            GameObject tempObject = handler.players.get(i);
 
-            if(tempObject.getId() != ID.Player){
-                if(this.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.Apple){
-                    this.handler.removeObject(tempObject);
-                }
-            }
-        }
-    }
 
 
 

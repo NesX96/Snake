@@ -87,4 +87,16 @@ public class Handler {
     }
     */
 
+    public void controlCollision(Player p){
+        for(int i = 0; i < players.size(); i++){
+            GameObject tempObject = players.get(i);
+
+            if(tempObject.getId() != ID.Player){
+                if(p.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.Apple){
+                    players.remove(tempObject);
+                }
+            }
+        }
+    }
+
 }
