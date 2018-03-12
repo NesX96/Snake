@@ -22,11 +22,32 @@ public class Spown {
 
         } else if (!handler.appleInGame()) {
 
-            handler.addObject(new Apple(rand.nextInt(Game.getResolution()), rand.nextInt(Game.getResolution()), ID.Apple, handler));
+            handler.addObject(new Apple(screenX(), screenY(), ID.Apple, handler));
 
         }
 
+    }
 
+    public int randomClamp(int var, int min, int max){
+
+        if (var < min){
+            return min + 80;
+        } else if (var >= max -30 ){
+            return max - 200;
+        } else {
+            return var;
+        }
+
+    }
+
+    private int screenX(){
+        return randomClamp(rand.nextInt((Game.getResolution()/ Game.getAspectRatioY())*Game.getAspectRatioX()),
+                0,
+                (Game.getResolution()/ Game.getAspectRatioY())*Game.getAspectRatioX());
+    }
+
+    private int screenY(){
+        return randomClamp(rand.nextInt(Game.getResolution()), 0, Game.getResolution());
     }
 
 }

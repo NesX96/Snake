@@ -7,15 +7,16 @@ public class Apple extends GameObject {
     Handler handler;
 
     private int size;
-    private int sizeDefault = 20;
 
     public Apple(int x, int y, final ID id, Handler handler){
         super(x, y, id);
-        this.size = sizeDefault;
+        this.size = 20;
     }
 
     @Override
-    public void tick(){}
+    public void tick(){
+        System.out.println("x: " +x+ " y: " +y);
+    }
 
 
     @Override
@@ -27,7 +28,7 @@ public class Apple extends GameObject {
     }
 
     public Rectangle getBounds() {
-        return new Rectangle((int) x, (int) y, this.size, this.size);
+        return new Rectangle(x, y, this.size, this.size);
     }
 
 

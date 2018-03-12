@@ -4,11 +4,11 @@ public abstract class GameObject {
 
     protected int x;
     protected int y;
-    protected Direction currentDirection;
-    protected int currentSpeed;
     protected int oldX;
     protected int oldY;
-
+    protected Direction currentDirection;
+    protected Direction oldDirection;
+    protected int currentSpeed;
     protected int size;
 
     protected ID id;
@@ -27,8 +27,6 @@ public abstract class GameObject {
     public abstract void tick();
     public abstract void render(Graphics g);
     public abstract Rectangle getBounds();
-
-
 
 
     //========================================================
@@ -67,7 +65,6 @@ public abstract class GameObject {
         this.id = id;
     }
 
-
     public int getOldX() {
         return oldX;
     }
@@ -90,6 +87,38 @@ public abstract class GameObject {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public Direction getOldDirection() {
+        return oldDirection;
+    }
+
+    public void setOldDirection(Direction oldDirection) {
+        this.oldDirection = oldDirection;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public Direction getCurrentDirection() {
+        return currentDirection;
+    }
+
+    public void setCurrentDirection(Direction currentDirection) {
+        this.currentDirection = currentDirection;
+    }
+
+    public int getCurrentSpeed() {
+        return currentSpeed;
+    }
+
+    public void setCurrentSpeed(int currentSpeed) {
+        this.currentSpeed = currentSpeed;
     }
 
 }

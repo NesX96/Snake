@@ -1,7 +1,5 @@
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.util.Random;
-
 
 public class Game extends Canvas implements Runnable {
 
@@ -14,8 +12,6 @@ public class Game extends Canvas implements Runnable {
     private static int HEIGHT = resolution;
     private static int WIDTH = (HEIGHT / aspectRatioY) * aspectRatioX;
     private String TITLE = "Gioco";
-
-    private Random rand;
 
     public Handler handler;
     private Spown spowner;
@@ -31,6 +27,8 @@ public class Game extends Canvas implements Runnable {
         spowner = new Spown(handler);
 
         this.addKeyListener(new KeyInput(handler));
+
+        System.out.println(WIDTH + " " + HEIGHT);
 
 
     }
