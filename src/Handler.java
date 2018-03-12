@@ -92,12 +92,19 @@ public class Handler {
             GameObject tempObject = players.get(i);
 
             if(tempObject.getId() != ID.Player){
-                if(p.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.Apple){
+                if (p.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.Apple){
                     players.remove(tempObject);
                     p.extendsPlayer();
+                }
+                if (p.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.PlayerBody){
+                    //p.setSpeed(0);
                 }
             }
         }
     }
+
+
+
+
 
 }

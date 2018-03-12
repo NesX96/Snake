@@ -58,6 +58,7 @@ public class PlayerBody extends GameObject{
         this.oldY = oldY;
     }
 
-
-
+    public GameObject getParent() {
+        return parent;
+    }
 }

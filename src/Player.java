@@ -73,6 +73,10 @@ public class Player extends GameObject {
         this.oldY = oldY;
     }
 
+    public GameObject getTail() {
+        return tail;
+    }
+
     //========================================================
     // FUNCTIONS - GAME DYNAMICS
     //========================================================
