@@ -94,6 +94,7 @@ public class Handler {
             if(tempObject.getId() != ID.Player){
                 if(p.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.Apple){
                     players.remove(tempObject);
+                    p.extendsPlayer();
                 }
             }
         }

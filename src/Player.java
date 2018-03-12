@@ -4,9 +4,16 @@ public class Player extends GameObject {
 
     Handler handler;
 
+    private GameObject tail;
+
     private int headSizeX;
     private int headSizeY;
-    private int headSizeDefault = 10;
+    private int headSizeDefault = 15;
+
+
+
+    private int oldX;
+    private int oldY;
 
     // private Vector<> players = new Vector<GameObject>();
 
@@ -17,8 +24,13 @@ public class Player extends GameObject {
         this.handler = handler;
         this.headSizeX = headSizeDefault;
         this.headSizeY = headSizeDefault;
+
         this.currentDirection = Direction.RIGHT;
         this.currentSpeed = 1;
+        this.oldX = x;
+        this.oldY = y;
+
+        this.tail = this;
     }
 
     public void setHeadSizeX(int x){
@@ -37,11 +49,38 @@ public class Player extends GameObject {
         return this.headSizeY;
     }
 
+    public int getHeadSizeDefault() {
+        return this.headSizeDefault;
+    }
+
+    public Direction getPlayerDirection(){
+        return this.currentDirection;
+    }
+
+    public int getOldX() {
+        return oldX;
+    }
+
+    public void setOldX(int oldX) {
+        this.oldX = oldX;
+    }
+
+    public int getOldY() {
+        return oldY;
+    }
+
+    public void setOldY(int oldY) {
+        this.oldY = oldY;
+    }
+
     //========================================================
     // FUNCTIONS - GAME DYNAMICS
     //========================================================
     @Override
     public void tick(){
+
+        this.oldY = this.y;
+        this.oldX = this.x;
 
         if(this.currentDirection == Direction.UP){
 
@@ -95,7 +134,12 @@ public class Player extends GameObject {
         return new Rectangle((int) x, (int) y, this.headSizeX, this.headSizeY);
     }
 
+    public void extendsPlayer(){
 
+        this.tail = new PlayerBody(this.getOldX(), this.getOldY(), ID.PlayerBody, handler, this.tail);
+        handler.addObject(this.tail);
+
+    }
 
 
 

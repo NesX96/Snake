@@ -6,6 +6,8 @@ public abstract class GameObject {
     protected int y;
     protected Direction currentDirection;
     protected int currentSpeed;
+    protected int oldX;
+    protected int oldY;
 
     protected ID id;
 
@@ -63,5 +65,21 @@ public abstract class GameObject {
         this.id = id;
     }
 
+
+    public int getOldX() {
+        return oldX;
+    }
+
+    public void setOldX(int oldX) {
+        this.oldX = oldX;
+    }
+
+    public int getOldY() {
+        return oldY;
+    }
+
+    public void setOldY(int oldY) {
+        this.oldY = oldY;
+    }
 
 }

@@ -2,6 +2,7 @@ public enum ID {
 
     Player(),
     Enemy(),
-    Apple()
+    Apple(),
+    PlayerBody()
 
 }
