@@ -4,7 +4,6 @@ import java.util.Random;
 public class Spown {
 
     private Handler handler;
-    private Player player;
     Random rand = new Random();
 
     private boolean addingPlayer = true;

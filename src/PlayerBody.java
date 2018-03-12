@@ -7,6 +7,7 @@ public class PlayerBody extends GameObject{
 
     private int oldX;
     private int oldY;
+    private int headSizeDefault = 15;
 
 
     public PlayerBody(int x, int y, final ID id, Handler handler, GameObject parent){
@@ -15,7 +16,7 @@ public class PlayerBody extends GameObject{
 
         this.parent = parent;
         this.oldX = x;
-        this.oldX = y;
+        this.oldY = y;
     }
 
     @Override
@@ -61,4 +62,18 @@ public class PlayerBody extends GameObject{
     public GameObject getParent() {
         return parent;
     }
+
+    /*
+    public int clampPlayerBody(int var, final int max, int min) {
+        if (var <= min) {
+            return max - headSizeDefault;
+        } else if (var + headSizeDefault > max) {
+            return min ;
+        } else {
+            return var;
+        }
+    }
+    */
+
+    // TODO getCenter() size 16
 }

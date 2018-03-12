@@ -27,7 +27,6 @@ public class Handler {
         }
     }
 
-
     public void render(Graphics gameGraphics){
         for (int i=0 ; i < players.size(); i++){
             final GameObject tempPlayer = players.get(i);
@@ -56,6 +55,7 @@ public class Handler {
         for (int i = 0; i < players.size(); i++) {
             if (players.get(i).id == ID.Player) {
                 p = players.get(i);
+                return p;
             }
         }
         return p;
