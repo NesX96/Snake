@@ -4,53 +4,46 @@ import java.awt.event.KeyEvent;
 public class KeyInput extends KeyAdapter {
 
     private Handler handler;
-    private boolean keyPressed = false;
+    private boolean[] keysPressed;
 
     public KeyInput(Handler handler){
         this.handler = handler;
+        this.keysPressed = new boolean[50];
     }
 
     public void keyPressed(KeyEvent e){
-
-        int key = e.getKeyCode();
-
-        if(!keyPressed){
-
-            if(key == KeyEvent.VK_UP && handler.getPlayer().getDirection() != Direction.DOWN){
-                handler.setPlayerDirection(Direction.UP);
-                keyPressed = true;
-            } else if (key == KeyEvent.VK_RIGHT && handler.getPlayer().getDirection() != Direction.LEFT) {
-                handler.setPlayerDirection(Direction.RIGHT);
-                keyPressed = true;
-            } else if (key == KeyEvent.VK_DOWN && handler.getPlayer().getDirection() != Direction.UP) {
-                handler.setPlayerDirection(Direction.DOWN);
-                keyPressed = true;
-            } else if (key == KeyEvent.VK_LEFT && handler.getPlayer().getDirection() != Direction.RIGHT) {
-                handler.setPlayerDirection(Direction.LEFT);
-                keyPressed = true;
-            }
-
-        }
+        keysPressed[e.getKeyCode()] = true;
+        update();
     }
 
-    public void keyReleased(final KeyEvent e) {
-
-        int key = e.getKeyCode();
-
-        if(keyPressed) {
-
-            if(key == KeyEvent.VK_UP && handler.getPlayerDirection() == Direction.UP){
-                keyPressed = false;
-            } else if (key == KeyEvent.VK_RIGHT && handler.getPlayerDirection() == Direction.RIGHT){
-                keyPressed = false;
-            } else if (key == KeyEvent.VK_DOWN && handler.getPlayerDirection() == Direction.DOWN){
-                keyPressed = false;
-            } else if (key == KeyEvent.VK_LEFT && handler.getPlayerDirection() == Direction.LEFT){
-                keyPressed = false;
-            }
-
-        }
-
+    private void update() {
+    	
+    	if (keysPressed[KeyEvent.VK_UP]) {
+    		if (handler.getPlayer().getDirection() != Direction.DOWN) {
+    		 handler.setPlayerDirection(Direction.UP);
+    		}
+    		keysPressed[KeyEvent.VK_UP] = false;
+    	}
+    	if (keysPressed[KeyEvent.VK_RIGHT]) {
+    		if (handler.getPlayer().getDirection() != Direction.LEFT) {
+    		 handler.setPlayerDirection(Direction.RIGHT);
+    		}
+    		keysPressed[KeyEvent.VK_RIGHT] = false;
+    	}
+    	if (keysPressed[KeyEvent.VK_DOWN]) {
+    		if (handler.getPlayer().getDirection() != Direction.UP) {
+    		 handler.setPlayerDirection(Direction.DOWN);
+    		}
+    		keysPressed[KeyEvent.VK_DOWN] = false;
+    	}
+    	if (keysPressed[KeyEvent.VK_LEFT]) {
+    		if (handler.getPlayer().getDirection() != Direction.RIGHT) {
+    		 handler.setPlayerDirection(Direction.LEFT);
+    		}
+    		keysPressed[KeyEvent.VK_LEFT] = false;
+    	}
     }
+    
+
 
 }
