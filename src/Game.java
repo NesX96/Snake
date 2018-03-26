@@ -13,14 +13,20 @@ public class Game extends Canvas implements Runnable {
     private static int WIDTH = (HEIGHT / aspectRatioY) * aspectRatioX;
     private String TITLE = "Gioco";
 
+
     public Handler handler;
     private Spown spowner;
+    Window window;
 
 
+    public Game(int aspectRatioX, int aspectRatioY, int resolution){
 
-    public Game(){
+        this.aspectRatioX = aspectRatioX;
+        this.aspectRatioY = aspectRatioY;
+        this.resolution = resolution;
+        this.HEIGHT = this.resolution;
+        this.WIDTH = (HEIGHT / this.aspectRatioY) * this.aspectRatioX;
 
-        Window window = new Window(WIDTH, HEIGHT, TITLE, this);
 
         handler = new Handler();
 
@@ -41,12 +47,19 @@ public class Game extends Canvas implements Runnable {
         thread = new Thread(this);
         thread.start();
         running = true;
+        Main.gamestate = Main.GAMESTATE.Running;
     }
 
     public synchronized void stop() {
         try {
-            thread.join();
+
+            Main.gamestate = Main.GAMESTATE.Stopped;
+            System.out.println(Main.gamestate);
+
             running = false;
+
+            thread.join();
+
         } catch (final Exception e) {
             e.printStackTrace();
         }
@@ -83,6 +96,9 @@ public class Game extends Canvas implements Runnable {
     public void tick(){
         handler.tick();
         spowner.tick();
+        if (handler.getPlayer().getSpeed() == 0){
+            this.stop();
+        }
     }
 
     private void render() {

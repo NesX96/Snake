@@ -77,6 +77,33 @@ public class Handler {
         return thereIs;
     }
 
+    public boolean turtleInGame(){
+
+        boolean thereIs  = false;
+
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).id == ID.Turtle) {
+                thereIs = true;
+            }
+        }
+        return thereIs;
+    }
+
+    public int numberOfTurtles(){
+
+        int n = 0;
+
+        for (int i = 0; i < players.size(); i++){
+            if(players.get(i).id == ID.Turtle){
+                n++;
+            }
+        }
+
+        return n;
+
+    }
+
+
     /*
     public void removeApple(){
         for(int i = 0; i < players.size(); i++){
@@ -95,10 +122,19 @@ public class Handler {
                 if (p.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.Apple){
                     players.remove(tempObject);
                     p.extendsPlayer();
+                    if(p.getPlayerLength()%7 == 0){
+                        p.setSpeed(p.getCurrentSpeed()+1);
+                    }
                 }
                 if (p.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.PlayerBody){
                     //p.setSpeed(0);
                 }
+                if (p.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.Turtle){
+                    p.setSpeed(0);
+
+                }
+
+
             }
         }
     }

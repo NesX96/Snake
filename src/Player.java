@@ -5,6 +5,7 @@ public class Player extends GameObject {
     Handler handler;
 
     private GameObject tail;
+    private int playerLength;
 
 
     public Player(int x, int y, final ID id, Handler handler){
@@ -17,6 +18,7 @@ public class Player extends GameObject {
         this.oldDirection = currentDirection;
         this.currentSpeed = 1;
         this.tail = this;
+        this.playerLength = 1;
     }
 
     //========================================================
@@ -68,7 +70,7 @@ public class Player extends GameObject {
     public int clampPlayer(int var, final int max, int min) {
         if (var <= min) {
             return max - size;
-        } else if (var + size/4 > max) {
+        } else if (var + size > max) {
             return min ;
         } else {
             return var;
@@ -84,9 +86,17 @@ public class Player extends GameObject {
 
         this.tail = new PlayerBody(this.getOldX(), this.getOldY(), ID.PlayerBody, handler, this.tail);
         handler.addObject(this.tail);
-
+        this.playerLength = this.playerLength+1;
+        System.out.println(this.playerLength);
     }
 
+    public int getPlayerLength() {
+        return playerLength;
+    }
+
+    public void setPlayerLength(int playerLength) {
+        this.playerLength = playerLength;
+    }
 
 
 

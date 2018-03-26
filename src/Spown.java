@@ -6,6 +6,8 @@ public class Spown {
     private Handler handler;
     Random rand = new Random();
 
+    private int difficulty = 2;
+
     private boolean addingPlayer = true;
 
     public Spown(Handler handler) {
@@ -23,6 +25,15 @@ public class Spown {
         } else if (!handler.appleInGame()) {
 
             handler.addObject(new Apple(screenX(), screenY(), ID.Apple, handler));
+
+        } else if (((Player) handler.getPlayer()).getPlayerLength()% difficulty == 0){
+
+
+            if (!handler.turtleInGame()){
+                handler.addObject(new Turtle(screenX(), screenY(), ID.Turtle, handler));
+            } else if (handler.numberOfTurtles() != ((Player) handler.getPlayer()).getPlayerLength() / difficulty){
+                handler.addObject(new Turtle(screenX(), screenY(), ID.Turtle, handler));
+            }
 
         }
 
