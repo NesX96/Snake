@@ -5,7 +5,7 @@ public class Main {
     private static int resolution = 720;
     private static int HEIGHT = resolution;
     private static int WIDTH = (HEIGHT / aspectRatioY) * aspectRatioX;
-    private static String TITLE = "Gioco";
+    private static String TITLE = "Snake";
 
 
     public enum GAMESTATE { Running(), Stopped()}
