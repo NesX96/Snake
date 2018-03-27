@@ -6,11 +6,11 @@ public class Game extends Canvas implements Runnable {
     private Thread thread;
     public static boolean running = false;
 
-    private static int aspectRatioX = 16;
-    private static int aspectRatioY = 9;
-    private static int resolution = 720;
-    private static int HEIGHT = resolution;
-    private static int WIDTH = (HEIGHT / aspectRatioY) * aspectRatioX;
+    private static int aspectRatioX ;
+    private static int aspectRatioY ;
+    private static int resolution ;
+    private static int HEIGHT ;
+    private static int WIDTH ;
     private String TITLE = "Gioco";
 
 
@@ -54,7 +54,6 @@ public class Game extends Canvas implements Runnable {
         try {
 
             Main.gamestate = Main.GAMESTATE.Stopped;
-            System.out.println(Main.gamestate);
 
             running = false;
 
@@ -99,6 +98,7 @@ public class Game extends Canvas implements Runnable {
         if (handler.getPlayer().getSpeed() == 0){
             this.stop();
         }
+
     }
 
     private void render() {

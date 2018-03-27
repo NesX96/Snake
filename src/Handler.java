@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Handler {
 
@@ -104,15 +105,16 @@ public class Handler {
     }
 
 
-    /*
-    public void removeApple(){
+
+    public void removeTurtle(){
         for(int i = 0; i < players.size(); i++){
-            if(players.get(i).getId() == ID.Apple){
+            if(players.get(i).getId() == ID.Turtle){
                 players.remove(i);
+                break;
             }
         }
     }
-    */
+
 
     public void controlCollision(Player p){
         for(int i = 0; i < players.size(); i++){
@@ -122,7 +124,7 @@ public class Handler {
                 if (p.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.Apple){
                     players.remove(tempObject);
                     p.extendsPlayer();
-                    if(p.getPlayerLength()%7 == 0){
+                    if(p.getPlayerLength()% 15 == 0){
                         p.setSpeed(p.getCurrentSpeed()+1);
                     }
                 }
@@ -138,6 +140,34 @@ public class Handler {
             }
         }
     }
+
+
+    public boolean isObjectOverlapped(int x, int y){
+
+        boolean overlap = false;
+
+        for (int i = 0; i < this.getSize(); i++){
+
+            if (players.get(i).getBounds().intersects(x,y,100,100)) {
+                overlap = true;
+                return overlap;
+            }
+        }
+
+        return overlap;
+
+    }
+
+    public void setRandomDirectionToTurtles(){
+
+        for(int i = 0; i < players.size(); i++){
+            if(players.get(i).getId() == ID.Turtle){
+                ((Turtle) players.get(i)).setRandomDirection();
+            }
+        }
+
+    }
+
 
 
 

@@ -6,7 +6,8 @@ public class Spown {
     private Handler handler;
     Random rand = new Random();
 
-    private int difficulty = 2;
+
+    private int turtlesSpownRate = 2;
 
     private boolean addingPlayer = true;
 
@@ -24,15 +25,32 @@ public class Spown {
 
         } else if (!handler.appleInGame()) {
 
-            handler.addObject(new Apple(screenX(), screenY(), ID.Apple, handler));
+            Coordinate appleCoordinates = setValidVariables();
 
-        } else if (((Player) handler.getPlayer()).getPlayerLength()% difficulty == 0){
+            handler.addObject(new Apple(appleCoordinates.getX(),
+                                        appleCoordinates.getY(),
+                                        ID.Apple,
+                                        handler));
 
 
-            if (!handler.turtleInGame()){
-                handler.addObject(new Turtle(screenX(), screenY(), ID.Turtle, handler));
-            } else if (handler.numberOfTurtles() != ((Player) handler.getPlayer()).getPlayerLength() / difficulty){
-                handler.addObject(new Turtle(screenX(), screenY(), ID.Turtle, handler));
+        } else if (((Player) handler.getPlayer()).getPlayerLength()% turtlesSpownRate == 0){
+
+            if (handler.numberOfTurtles() != ((Player) handler.getPlayer()).getPlayerLength() / turtlesSpownRate) {
+
+                if (((Player) handler.getPlayer()).getPlayerLength() < 10) {
+
+                    Coordinate turtleCoordinates = setValidVariables();
+
+                    handler.addObject(new Turtle(turtleCoordinates.getX(),
+                                                 turtleCoordinates.getY(),
+                                                 ID.Turtle,
+                                                 handler));
+
+
+                } else {
+                    handler.setRandomDirectionToTurtles();
+                }
+
             }
 
         }
@@ -43,7 +61,7 @@ public class Spown {
 
         if (var < min){
             return min + 80;
-        } else if (var >= max -30 ){
+        } else if (var >= max -101 ){
             return max - 200;
         } else {
             return var;
@@ -54,11 +72,35 @@ public class Spown {
     private int screenX(){
         return randomClamp(rand.nextInt((Game.getResolution()/ Game.getAspectRatioY())*Game.getAspectRatioX()),
                 0,
-                (Game.getResolution()/ Game.getAspectRatioY())*Game.getAspectRatioX());
+                (Game.getResolution()/ Game.getAspectRatioY())*Game.getAspectRatioX() );
     }
 
     private int screenY(){
         return randomClamp(rand.nextInt(Game.getResolution()), 0, Game.getResolution());
     }
 
+    private Coordinate setValidVariables(){
+
+        int x = screenX();
+        int y = screenY();
+
+        while(handler.isObjectOverlapped(x,y)){
+            x = resetVariableX(x);
+            y = resetVariableY(y);
+            System.out.format("x: %d ,y: %d \n", x, y);
+        }
+
+        return new Coordinate(x, y);
+    }
+
+    private int resetVariableX(int x){
+        return screenX();
+    }
+
+    private int resetVariableY(int y){
+        return screenY();
+    }
+
 }
+
+

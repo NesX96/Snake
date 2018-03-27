@@ -2,7 +2,7 @@ public class Main {
 
     private static int aspectRatioX = 16;
     private static int aspectRatioY = 9;
-    private static int resolution = 1080;
+    private static int resolution = 720;
     private static int HEIGHT = resolution;
     private static int WIDTH = (HEIGHT / aspectRatioY) * aspectRatioX;
     private static String TITLE = "Gioco";
@@ -22,7 +22,7 @@ public class Main {
             System.out.print("");
 
             if(gamestate == GAMESTATE.Stopped){
-                System.out.println("ciao2");
+
                 window.deathScreen(game);
                 break;
             }
