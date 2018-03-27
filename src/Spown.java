@@ -6,7 +6,6 @@ public class Spown {
     private Handler handler;
     Random rand = new Random();
 
-
     private int turtlesSpownRate = 2;
 
     private boolean addingPlayer = true;
@@ -17,12 +16,14 @@ public class Spown {
 
     public void tick(){
 
+        //Player Creation
         if(addingPlayer){
             handler.addObject(new Player(10, 10, ID.Player, handler));
             handler.setPlayerSpeed(3);
             handler.setPlayerDirection(Direction.DOWN);
             addingPlayer = false;
 
+        // Apple creation
         } else if (!handler.appleInGame()) {
 
             Coordinate appleCoordinates = setValidVariables();
@@ -32,12 +33,11 @@ public class Spown {
                                         ID.Apple,
                                         handler));
 
+        // Turtle creation
+        } else if (handler.numberOfTurtles() != ((Player) handler.getPlayer()).getPlayerLength() / turtlesSpownRate) {
 
-        } else if (((Player) handler.getPlayer()).getPlayerLength()% turtlesSpownRate == 0){
-
-            if (handler.numberOfTurtles() != ((Player) handler.getPlayer()).getPlayerLength() / turtlesSpownRate) {
-
-                if (((Player) handler.getPlayer()).getPlayerLength() < 10) {
+                // Turtle spown
+                if (((Player) handler.getPlayer()).getPlayerLength() < 20) {
 
                     Coordinate turtleCoordinates = setValidVariables();
 
@@ -45,15 +45,13 @@ public class Spown {
                                                  turtleCoordinates.getY(),
                                                  ID.Turtle,
                                                  handler));
-
-
-                } else {
+                //Turtle movement
+                } else if (((Player) handler.getPlayer()).getPlayerLength()% turtlesSpownRate == 0){
                     handler.setRandomDirectionToTurtles();
                 }
-
             }
 
-        }
+
 
     }
 

@@ -38,6 +38,8 @@ public class Turtle extends GameObject {
                 this.y, Game.getResolution(), 0);
 
 
+        handler.controlTurtleCollision(this);
+
     }
 
     @Override
@@ -62,20 +64,29 @@ public class Turtle extends GameObject {
 
         switch (n) {
             case 0:
-                this.setCurrentDirection(Direction.UP);
-                break;
+                if (this.getY() > 0 ) {
+                    this.setCurrentDirection(Direction.UP);
+                    break;
+                }
             case 1:
-                this.setCurrentDirection(Direction.RIGHT);
-                break;
+                if (this.getX() < Game.getWIDTH()-this.getSize()) {
+                    this.setCurrentDirection(Direction.RIGHT);
+                    break;
+                }
             case 2:
-                this.setCurrentDirection(Direction.DOWN);
-                break;
+                if (this.getY() < Game.getHEIGHT()-this.getSize()) {
+                    this.setCurrentDirection(Direction.DOWN);
+                    break;
+                }
             case 3:
-                this.setCurrentDirection(Direction.LEFT);
-                break;
+                if (this.getX() > 0) {
+                    this.setCurrentDirection(Direction.LEFT);
+                    break;
+                }
         }
 
         this.setCurrentSpeed(1);
+
 
     }
 

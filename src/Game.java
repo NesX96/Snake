@@ -103,6 +103,7 @@ public class Game extends Canvas implements Runnable {
 
     private void render() {
 
+
         final BufferStrategy bs = this.getBufferStrategy();
         if (bs == null){
             this.createBufferStrategy(3);
@@ -147,6 +148,22 @@ public class Game extends Canvas implements Runnable {
         this.resolution = resolution;
     }
 
+
+    public static int getHEIGHT() {
+        return HEIGHT;
+    }
+
+    public static void setHEIGHT(int HEIGHT) {
+        Game.HEIGHT = HEIGHT;
+    }
+
+    public static int getWIDTH() {
+        return WIDTH;
+    }
+
+    public static void setWIDTH(int WIDTH) {
+        Game.WIDTH = WIDTH;
+    }
 
 
 }

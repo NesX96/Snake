@@ -54,7 +54,7 @@ public class Player extends GameObject {
 
         //System.out.println(x +" "+ y);
 
-        handler.controlCollision(this);
+        handler.controlPlayerCollision(this);
 
     }
 

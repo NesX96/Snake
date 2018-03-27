@@ -14,9 +14,7 @@ public class Apple extends GameObject {
     }
 
     @Override
-    public void tick(){
-        //System.out.println("x: " +x+ " y: " +y);
-    }
+    public void tick(){ }
 
 
     @Override

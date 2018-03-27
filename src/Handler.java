@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.sql.SQLOutput;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -116,9 +117,13 @@ public class Handler {
     }
 
 
-    public void controlCollision(Player p){
+    public void controlPlayerCollision(Player p){
+
+        GameObject tempObject;
+
         for(int i = 0; i < players.size(); i++){
-            GameObject tempObject = players.get(i);
+
+            tempObject = players.get(i);
 
             if(tempObject.getId() != ID.Player){
                 if (p.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.Apple){
@@ -141,6 +146,23 @@ public class Handler {
         }
     }
 
+    public void controlTurtleCollision(Turtle t){
+
+        GameObject tempObject;
+
+        for(int i = 0; i < players.size(); i++){
+
+            tempObject = players.get(i);
+
+            if(!tempObject.equals(t)) {
+                if (t.getBounds().intersects(tempObject.getBounds()) && ((tempObject.getId() == ID.Apple)  ||
+                                                                         (tempObject.getId() == ID.PlayerBody) ||
+                                                                         (tempObject.getId() == ID.Turtle))) {
+                    t.setSpeed(0);
+                }
+            }
+        }
+    }
 
     public boolean isObjectOverlapped(int x, int y){
 
