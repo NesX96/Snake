@@ -11,12 +11,10 @@ public class Game extends Canvas implements Runnable {
     private static int resolution ;
     private static int HEIGHT ;
     private static int WIDTH ;
-    private String TITLE = "Gioco";
 
 
     public Handler handler;
     private Spown spowner;
-    Window window;
 
 
     public Game(int aspectRatioX, int aspectRatioY, int resolution){
@@ -130,35 +128,35 @@ public class Game extends Canvas implements Runnable {
         return aspectRatioX;
     }
 
-    public void setAspectRatio(int aspectRatioX, int aspectRatioY) {
-        this.aspectRatioX = aspectRatioX;
-        this.aspectRatioY = aspectRatioY;
-    }
-
     public static int getAspectRatioY() {
         return aspectRatioY;
     }
 
+    public static int getAspectRatio() { return (aspectRatioX/aspectRatioY); }
+
+    public static int getHEIGHT() {
+        return HEIGHT;
+    }
 
     public static int getResolution() {
         return resolution;
     }
 
-    public void setResolution(int resolution) {
-        this.resolution = resolution;
+    public static int getWIDTH() {
+        return WIDTH;
     }
 
-
-    public static int getHEIGHT() {
-        return HEIGHT;
+    public void setAspectRatio(int aspectRatioX, int aspectRatioY) {
+        this.aspectRatioX = aspectRatioX;
+        this.aspectRatioY = aspectRatioY;
     }
 
     public static void setHEIGHT(int HEIGHT) {
         Game.HEIGHT = HEIGHT;
     }
 
-    public static int getWIDTH() {
-        return WIDTH;
+    public void setResolution(int resolution) {
+        this.resolution = resolution;
     }
 
     public static void setWIDTH(int WIDTH) {

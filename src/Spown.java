@@ -7,6 +7,7 @@ public class Spown {
     Random rand = new Random();
 
     private int turtlesSpownRate = 2;
+    private int maxNumerOfTurtle = 10;
 
     private boolean addingPlayer = true;
 
@@ -37,7 +38,7 @@ public class Spown {
         } else if (handler.numberOfTurtles() != ((Player) handler.getPlayer()).getPlayerLength() / turtlesSpownRate) {
 
                 // Turtle spown
-                if (((Player) handler.getPlayer()).getPlayerLength() < 20) {
+                if (((Player) handler.getPlayer()).getPlayerLength() < 20 || handler.numberOfTurtles() < maxNumerOfTurtle ) {
 
                     Coordinate turtleCoordinates = setValidVariables();
 

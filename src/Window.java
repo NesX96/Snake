@@ -1,14 +1,9 @@
-import javafx.scene.image.Image;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Path;
 
 
 public class Window extends Canvas {
@@ -59,7 +54,7 @@ public class Window extends Canvas {
         BufferedImage image = null;
 
         try{
-            File file = new File("./death.jpg");
+            File file = new File("death.jpg");
             image = ImageIO.read(file);
         } catch (IOException e){
             e.printStackTrace();

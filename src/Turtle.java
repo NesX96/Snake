@@ -34,7 +34,7 @@ public class Turtle extends GameObject {
 
         }
 
-        turtleBox(this.x, (Game.getResolution() / Game.getAspectRatioY()) * Game.getAspectRatioX(), 0,
+        turtleBox(this.x, Game.getResolution() * Game.getAspectRatio(), 0,
                 this.y, Game.getResolution(), 0);
 
 
@@ -86,7 +86,6 @@ public class Turtle extends GameObject {
         }
 
         this.setCurrentSpeed(1);
-
 
     }
 

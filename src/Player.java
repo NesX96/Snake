@@ -1,3 +1,5 @@
+
+
 import java.awt.*;
 
 public class Player extends GameObject {
@@ -49,12 +51,11 @@ public class Player extends GameObject {
 
         }
 
-        this.x = clampPlayer(this.x, (Game.getResolution() / Game.getAspectRatioY())* Game.getAspectRatioX(), 0 );
-        this.y = clampPlayer(this.y, Game.getResolution() ,0 );
 
-        //System.out.println(x +" "+ y);
+        verifyPlayerBox();
 
         handler.controlPlayerCollision(this);
+
 
     }
 
@@ -77,9 +78,19 @@ public class Player extends GameObject {
         }
     }
 
+    private void verifyPlayerBox() {
+
+        this.x = clampPlayer(this.x, (Game.getResolution() / Game.getAspectRatioY())* Game.getAspectRatioX(), 0 );
+        this.y = clampPlayer(this.y, Game.getResolution() ,0 );
+    }
+
 
     public Rectangle getBounds() {
         return new Rectangle((int) x, (int) y, this.size, this.size);
+    }
+
+    public Rectangle getSafeZone(){
+        return new Rectangle((int) x-100, (int) y -100, this.size+100,this.size+100);
     }
 
     public void extendsPlayer(){

@@ -156,9 +156,10 @@ public class Handler {
 
             if(!tempObject.equals(t)) {
                 if (t.getBounds().intersects(tempObject.getBounds()) && ((tempObject.getId() == ID.Apple)  ||
-                                                                         (tempObject.getId() == ID.PlayerBody) ||
-                                                                         (tempObject.getId() == ID.Turtle))) {
+                                                                         (tempObject.getId() == ID.PlayerBody))) {
                     t.setSpeed(0);
+                } else if (t.getBounds().intersects(tempObject.getBounds()) && tempObject.getId() == ID.Turtle){
+                    players.remove(tempObject);
                 }
             }
         }
@@ -170,10 +171,19 @@ public class Handler {
 
         for (int i = 0; i < this.getSize(); i++){
 
-            if (players.get(i).getBounds().intersects(x,y,100,100)) {
-                overlap = true;
-                return overlap;
-            }
+            if (players.get(i).getId() == ID.Player) {
+
+                if (((Player) players.get(i)).getSafeZone().intersects(x,y,100,100) );
+
+            } else {
+
+                if (players.get(i).getBounds().intersects(x,y,100,100)) {
+                   overlap = true;
+                   return overlap;
+               }
+           }
+
+
         }
 
         return overlap;

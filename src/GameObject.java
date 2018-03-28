@@ -33,6 +33,42 @@ public abstract class GameObject {
     // GETTER AND SETTER
     //========================================================
 
+    public int getCurrentSpeed() {
+        return currentSpeed;
+    }
+
+    public Direction getCurrentDirection() {
+        return currentDirection;
+    }
+
+    public Direction getDirection(){
+        return this.currentDirection;
+    }
+
+    public ID getId() {
+        return id;
+    }
+
+    public Direction getOldDirection() {
+        return oldDirection;
+    }
+
+    public int getOldX() {
+        return oldX;
+    }
+
+    public int getOldY() {
+        return oldY;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public int getSpeed(){
+        return this.currentSpeed;
+    }
+
     public int getX() {
         return this.x;
     }
@@ -41,60 +77,40 @@ public abstract class GameObject {
         return this.y;
     }
 
+    public void setCurrentDirection(Direction currentDirection) {
+        this.currentDirection = currentDirection;
+    }
+
+    public void setCurrentSpeed(int currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
+
     public void setDirection(Direction direction){
         this.currentDirection = direction;
-    }
-
-    public Direction getDirection(){
-        return this.currentDirection;
-    }
-
-    public void setSpeed(int speed){
-        this.currentSpeed = speed;
-    }
-
-    public int getSpeed(){
-        return this.currentSpeed;
-    }
-
-    public ID getId() {
-        return id;
     }
 
     public void setId(final ID id) {
         this.id = id;
     }
 
-    public int getOldX() {
-        return oldX;
+    public void setOldDirection(Direction oldDirection) {
+        this.oldDirection = oldDirection;
     }
 
     public void setOldX(int oldX) {
         this.oldX = oldX;
     }
 
-    public int getOldY() {
-        return oldY;
-    }
-
     public void setOldY(int oldY) {
         this.oldY = oldY;
-    }
-
-    public int getSize() {
-        return size;
     }
 
     public void setSize(int size) {
         this.size = size;
     }
 
-    public Direction getOldDirection() {
-        return oldDirection;
-    }
-
-    public void setOldDirection(Direction oldDirection) {
-        this.oldDirection = oldDirection;
+    public void setSpeed(int speed){
+        this.currentSpeed = speed;
     }
 
     public void setX(int x) {
@@ -103,22 +119,6 @@ public abstract class GameObject {
 
     public void setY(int y) {
         this.y = y;
-    }
-
-    public Direction getCurrentDirection() {
-        return currentDirection;
-    }
-
-    public void setCurrentDirection(Direction currentDirection) {
-        this.currentDirection = currentDirection;
-    }
-
-    public int getCurrentSpeed() {
-        return currentSpeed;
-    }
-
-    public void setCurrentSpeed(int currentSpeed) {
-        this.currentSpeed = currentSpeed;
     }
 
 }
